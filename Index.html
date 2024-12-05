@@ -1,0 +1,49 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <title>Simple Web Browser</title>  
+  <style>  
+   body {  
+    font-family: Arial, sans-serif;  
+   }  
+   #browser-container {  
+    width: 80%;  
+    height: 600px;  
+    border: 1px solid #ccc;  
+    padding: 10px;  
+   }  
+   #address-bar {  
+    width: 100%;  
+    height: 30px;  
+    padding: 10px;  
+    border: 1px solid #ccc;  
+   }  
+  </style>  
+</head>  
+<body>  
+  <h1>Simple Web Browser</h1>  
+  <input id="address-bar" type="text" placeholder="Enter URL">  
+  <button id="go-button">Go</button>  
+  <div id="browser-container">  
+   <iframe id="browser-iframe" src="" frameborder="0" width="100%" height="100%"></iframe>  
+  </div>  
+  
+  <script>  
+   const addressBar = document.getElementById('address-bar');  
+   const goButton = document.getElementById('go-button');  
+   const browserIframe = document.getElementById('browser-iframe');  
+  
+   goButton.addEventListener('click', () => {  
+    const url = addressBar.value;  
+    browserIframe.src = url;  
+   });  
+  
+   addressBar.addEventListener('keypress', (e) => {  
+    if (e.key === 'Enter') {  
+      const url = addressBar.value;  
+      browserIframe.src = url;  
+    }  
+   });  
+  </script>  
+</body>  
+</html>
